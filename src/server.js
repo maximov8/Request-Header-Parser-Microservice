@@ -6,7 +6,7 @@ app.use(bodyParser.json())
 
 app.get('/api/whoami', (req, res) => {
   let headers = req.headers
-  let ip = req.ip
+  let ip = headers['x-forwarded-for'] || req.connection.remoteAddress;
   let lang = headers['accept-language'].split(',')[0]
   let os = headers['user-agent'].split(') ')[0].split(' (')[1]
   let whoami = {
