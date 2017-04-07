@@ -11,7 +11,7 @@ app.get('/api/whoami', (req, res) => {
   let os = headers['user-agent'].split(') ')[0].split(' (')[1]
   let whoami = {
     'ip': ip,
-    'laguage': lang,
+    'language': lang,
     'software': os
   }
   res.json(whoami)
